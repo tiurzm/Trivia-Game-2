@@ -43,8 +43,7 @@ $(document).ready(function(){
         loadQueswer();
     });
 
-    var answerValue = $(this).attr("value");
-    console.log(answerValue);
+  
     var correctAnswer = allQuestion[currentQuestion].correctAnswer;
     console.log(correctAnswer);
 
@@ -69,10 +68,11 @@ $(document).ready(function(){
             var done = $("<div>");
             done.addClass("display");
             $(".timer").append(done);
-           
+            var answerValue = $(this).attr("value");
+            console.log(answerValue);
             if(answerValue === correctAnswer){
                 var correctP = $("<p>");
-                correctP.text("Correct");
+                correctP.text("Correct!");
                 var correctImage = $("<img>");
                 correctImage.addClass("correct")
                 correctImage.attr("src", "assets/images/md.gif");

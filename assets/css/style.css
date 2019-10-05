@@ -52,11 +52,11 @@ html {
       text-align: center;
   }
 
-  .timer, .display {
+  .timer{
       max-width: 700px;
       height: auto;
-      margin: 10px auto;
-      padding: 5px 20px 25px;
+      margin: 0 auto;
+      padding: 10px 0 25px;
       background: #fffffff0;
       border-radius: 5px;
   }
