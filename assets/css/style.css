@@ -1,6 +1,6 @@
   
 html { 
-    background: url(../images/mv.jpg) no-repeat center center fixed; 
+    background: url(../images/mv.png) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -11,7 +11,6 @@ html {
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
-    color: #522D02;
   }
 
   h1 {
@@ -19,7 +18,7 @@ html {
       font-size: 80px;
       margin: 0;
       padding: 0 20px;
-      color: #522D02;
+      color: white;
   }
 
   button {
@@ -29,23 +28,32 @@ html {
       width: 100%;
       font-size: 20px;
       margin-top: 15px;
-      border:1px solid #522D02;
+      border:1px solid black;
       border-radius: 3px;
       background: #fffffff0;
-      color: #522D02;
   }
 
   input, label {
       font-size: 16px;
   }
+
+  .choice:hover {
+      background:#152b94;
+      color: white;
+      max-width: 100px;
+      padding: 10px;
+      text-align: center; 
+      margin: 0 auto;
+      border-radius: 3px;
+  }
   .container {
-      margin: 300px auto;
+      margin: 200px auto;
       max-width: 1000px;
       text-align: center;
   }
 
-  .timer {
-      max-width: 800px;
+  .timer, .display {
+      max-width: 700px;
       height: auto;
       margin: 10px auto;
       padding: 5px 20px 25px;
