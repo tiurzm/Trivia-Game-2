@@ -23,11 +23,11 @@ html {
 
   button {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 80px;
+      max-width: 125px;
       height: 40px;;
       width: 100%;
+      margin: 10px;
       font-size: 20px;
-      margin-top: 15px;
       border:1px solid black;
       border-radius: 3px;
       background: #fffffff0;
@@ -47,16 +47,25 @@ html {
       border-radius: 3px;
   }
   .container {
-      margin: 200px auto;
+      margin: 250px auto;
       max-width: 1000px;
       text-align: center;
   }
 
-  .timer{
-      max-width: 700px;
+  .column {
+      max-width: 600px;
       height: auto;
       margin: 0 auto;
-      padding: 10px 0 25px;
+      padding: 10px 0;
       background: #fffffff0;
       border-radius: 5px;
+
+  }
+  .column p {
+      margin: 0;
+      padding: 10px;
+  }
+  .for-question {
+      margin: 0;
+      padding: 10px;
   }
