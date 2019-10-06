@@ -28,14 +28,10 @@ html {
       width: 100%;
       margin: 10px;
       font-size: 20px;
-      border:1px solid black;
       border-radius: 3px;
       background: #fffffff0;
   }
 
-  input, label {
-      font-size: 16px;
-  }
 
   .choice:hover {
       background:#152b94;
@@ -52,7 +48,7 @@ html {
       text-align: center;
   }
 
-  .column {
+  #target {
       max-width: 600px;
       height: auto;
       margin: 0 auto;

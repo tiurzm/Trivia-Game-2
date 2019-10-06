@@ -32,15 +32,33 @@ $(document).ready(function(){
             correctAnswer: "Bread",
             correctImage: "assets/images/sj.gif",
             wrongImage: "assets/images/js.gif",
-        }, 
+        }, {
+            question: "In “Princess and the Frog“, what fictional country is Prince Naveen from?",
+            answers: ["Maramorgos", "Mypos", "Mrač", "Maldonia"],
+            correctAnswer: "Maldonia",
+            correctImage: "assets/images/fp.gif",
+            wrongImage: "assets/images/pf.gif",
+        },{
+            question: "In “Hercules“, Hades promised not to harm Megara if Hercules gave up his strength for how long?",
+            answers: ["12 hours", "24 hours", "36 hours", "48 hours"],
+            correctAnswer: "12 hours",
+            correctImage: "assets/images/hd.gif",
+            wrongImage: "assets/images/dh.gif",
+        },{
+            question: "In “101 Dalmatians“, how many puppies does Perdita give birth to?",
+            answers: ["12", "15", "18", "21"],
+            correctAnswer: "15",
+            correctImage: "assets/images/dl.gif",
+            wrongImage: "assets/images/ld.gif",
+        },
     ];
 
     var currentQuestion = 0;
     var timeRemain = 10;
-    var showImage;
     var intervalId;
     var lost = 0;
-    var win = 0;  
+    var win = 0; 
+    var empty = 0; 
 
     $(".start").on("click", function(){
         $(this).remove();
@@ -50,7 +68,7 @@ $(document).ready(function(){
         playAgain();
     });
     
-
+    // timer
     function countDown() {
         timeRemain--;
         $(".time").html(timeRemain);
@@ -58,7 +76,6 @@ $(document).ready(function(){
             timeUp();
         }
     }
-
     function timeUp() {
         clearInterval(intervalId);
         lost++ 
@@ -88,7 +105,7 @@ $(document).ready(function(){
 
         loadAnswers();
     };
-
+    // load answers
     function loadAnswers(){
         var choices = allQuestion[currentQuestion].answers;
         for(var i=0; i < choices.length; i++){
@@ -110,7 +127,7 @@ $(document).ready(function(){
             loadQuestion();
         }
     };
-
+    // correct or incorrect
     function trueFalse(){
         $(document).on("click",".choice", function(){
             // var done = $("<div>");
@@ -125,7 +142,7 @@ $(document).ready(function(){
                 displayImage("win")
                 setTimeout(nextQuestion, 3*1000);
 
-            }else{
+            }else if( answerValue !== correctAnswer){
                 lost++;
                 console.log("wrong");
                 displayImage("lost")
@@ -133,18 +150,41 @@ $(document).ready(function(){
             }
         });
     }
+    
+    // display images
+    function displayImage(status) {
+        if(status === "win"){
+            var correctP = $("<p>");
+            correctP.text("Correct!");
+            $(".for-question").html(correctP);
+            var correctImage = $("<img>");
+            correctImage.addClass("correct")
+            correctImage.attr("src", allQuestion[currentQuestion].correctImage);
+            $(".for-question").append(correctImage);
 
+        }else{
+            var wrongP = $("<p>");
+            wrongP.text("Nope!");
+            $(".for-question").html(wrongP);
+            var wrongC = $("<p>");
+            wrongC.text("The Correct Answer was: " + allQuestion[currentQuestion].correctAnswer);
+            var wrongImage = $("<img>");
+            wrongImage.addClass("wrong");
+            wrongImage.attr("src", allQuestion[currentQuestion].wrongImage);
+            $(".for-question").append(wrongC, wrongImage);
+        }
+    }
     // display result 
     function allDone(){
         var result = `
             <p> Correct Answers: ${win} </p>
             <p> Incorrect Answers: ${lost} </p>
-            <p> Total questions: ${allQuestion.length}</p>
+            <p> Total questions: ${allQuestion.length} </p>
             <button class=play-again>Play Again?</button>
         `;
         $(".column").html(result);
     }
-
+    // reset
     function playAgain(){
         $(document).on("click",".play-again", function(){
             currentQuestion = 0;
@@ -154,30 +194,6 @@ $(document).ready(function(){
             win = 0; 
             loadQuestion();
         });
-    }
-
-    function displayImage(status) {
-        var correctAnswer = allQuestion[currentQuestion].correctAnswer;
-        if(status === "win"){
-            var correctP = $("<p>");
-            correctP.text("Correct!");
-            $(".column").html(correctP);
-            var correctImage = $("<img>");
-            correctImage.addClass("correct")
-            correctImage.attr("src", allQuestion[currentQuestion].correctImage);
-            $(".column").append(correctImage);
-
-        }else{
-            var wrongP = $("<p>");
-            wrongP.text("Nope!");
-            $(".column").html(wrongP);
-            var wrongC = $("<p>");
-            wrongC.text("The Correct Answer was: " + allQuestion[currentQuestion].correctAnswer);
-            var wrongImage = $("<img>");
-            wrongImage.addClass("wrong");
-            wrongImage.attr("src", allQuestion[currentQuestion].wrongImage);
-            $(".column").append(wrongC, wrongImage);
-        }
     }
 
 });
