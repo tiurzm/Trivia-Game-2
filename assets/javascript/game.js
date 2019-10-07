@@ -54,7 +54,7 @@ $(document).ready(function(){
     ];
 
     var currentQuestion = 0;
-    var timeRemain = 10;
+    var timeRemain = 30;
     var intervalId;
     var lost = 0;
     var win = 0; 
@@ -85,11 +85,11 @@ $(document).ready(function(){
 
     // display question and answer:
     function loadQuestion(){
-        timeRemain = 10;
+        timeRemain = 30;
         intervalId = setInterval(countDown, 1000);
         var question = allQuestion[currentQuestion].question;
 
-        $(".column").html("<p>Time remaining:<span class=time> 10</span> seconds</p>");
+        $(".column").html("<p>Time remaining:<span class=time> 30</span> seconds</p>");
 
         var newD = $("<div>")
         newD.addClass("for-question");
@@ -188,7 +188,7 @@ $(document).ready(function(){
     function playAgain(){
         $(document).on("click",".play-again", function(){
             currentQuestion = 0;
-            timeRemain = 10;
+            timeRemain = 30;
             intervalId = null;
             lost = 0;
             win = 0; 
